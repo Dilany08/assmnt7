@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         final DataManager dm = new DataManager(this);
+
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,10 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, fName.getText().toString()+ " has been inserted!", Toast.LENGTH_SHORT).show();
             }
         });
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String data = dm.showData(dm.searchAll());
+                Toast.makeText(MainActivity.this, data,Toast.LENGTH_SHORT).show();
             }
         });
         edit.setOnClickListener(new View.OnClickListener() {
