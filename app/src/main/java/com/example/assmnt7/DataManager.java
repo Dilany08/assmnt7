@@ -97,7 +97,6 @@ public class DataManager {
                 AppData myData = new AppData();
                 while (c.moveToNext()) {
                     myData.setId(c.getString(1));
-                    myData.setId(c.getString(2));
                 }
                 return myData;
             }
@@ -110,7 +109,7 @@ public class DataManager {
                             "SET " +  TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
                             "SET " + TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
                             "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'";
-                            Log.i("update()",query);
+                            Log.i("update() = ",query);
                             db.execSQL(query);
         }
         public void delete(String _id) {
