@@ -25,33 +25,34 @@ public class DataManager {
     private class CustomSQLiteOpenHelper extends SQLiteOpenHelper {
         public CustomSQLiteOpenHelper(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
-
         }
+
         @Override
-        public void onCreate(SQLiteDatabase db){
-        String newTableQueryString ="create table "
-                + TABLE_STUDENT + "("
-                        +TABLE_ROW_ID
-                        + " integer primary key not null,"
-                        +TABLE_ROW_FNAME
-                        +"text not null,"
-                        +TABLE_ROW_COURSE
-                        +"text not null,"
-                        +TABLE_ROW_SECTION
-                        +"text not null,"
-                        +TABLE_ROW_MIDTERM
-                        +"integer not null,"
-                        +TABLE_ROW_FINALS
-                        +"integer not null);";
-                db.execSQL(newTableQueryString);
+        public void onCreate(SQLiteDatabase db) {
+            String newTableQueryString = "create table "
+                    + TABLE_STUDENT + "("
+                    + TABLE_ROW_ID
+                    + " integer primary key not null,"
+                    + TABLE_ROW_FNAME
+                    + "text not null,"
+                    + TABLE_ROW_COURSE
+                    + "text not null,"
+                    + TABLE_ROW_SECTION
+                    + "text not null,"
+                    + TABLE_ROW_MIDTERM
+                    + "integer not null,"
+                    + TABLE_ROW_FINALS
+                    + "integer not null);";
+            db.execSQL(newTableQueryString);
 
         }
+
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
 
         }
-
+    }
     public DataManager(Context context) {
         CustomSQLiteOpenHelper helper = new CustomSQLiteOpenHelper(context);
 
@@ -92,6 +93,14 @@ public class DataManager {
                 }
                 return myData.getData();
             }
+            public AppData editId(Cursor c) {
+                AppData myData = new AppData();
+                while (c.moveToNext()) {
+                    myData.setId(c.getString(1));
+                    myData.setId(c.getString(2));
+                }
+                return myData;
+            }
 
         public void update(String _id, String fName, String course, String section, String midterm, String finals){
                     String query = "UPDATE " + TABLE_STUDENT + "SET " +
@@ -103,7 +112,13 @@ public class DataManager {
                             "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'";
                             Log.i("update()",query);
                             db.execSQL(query);
-
+        }
+        public void delete(String _id) {
+                String query = "DELETE FROM" + TABLE_STUDENT +
+                        "WHERE" + TABLE_ROW_ID +
+                        " = '" + _id + "';";
+                Log.i("delete() = ", query);
+                db.execSQL(query);
         }
     }
-}
+
