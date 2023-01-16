@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Button searchAll = findViewById(R.id.allSearch);
         Button deleteBtn = findViewById(R.id.deleteBtn);
         EditText ID,course,fName,section,mt,finals,idEdit,idDelete,searchTV;
-        TextView grade;
+
 
         ID = findViewById(R.id.idInput);
         course = findViewById(R.id.courseInput);
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         idEdit = findViewById(R.id.editID);
         idDelete = findViewById(R.id.deleteID);
         searchTV = findViewById(R.id.searchTV);
-        grade = findViewById(R.id.gradef);
+
 
 
         final DataManager dm = new DataManager(this);
@@ -41,15 +41,35 @@ public class MainActivity extends AppCompatActivity {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Integer midterms = Integer.valueOf(mt.getText().toString());
+                Integer finalg = Integer.valueOf(finals.getText().toString());
+
+                if (midterms < 60) {
+                    Toast.makeText(MainActivity.this, "Invalid input", Toast.LENGTH_SHORT).show();
+                } else if (midterms > 100) {
+                    Toast.makeText(MainActivity.this, "Invalid input", Toast.LENGTH_SHORT).show();
+
+                } else if (finalg < 60) {
+
+                    Toast.makeText(MainActivity.this, "Invalid input", Toast.LENGTH_SHORT).show();
+                } else if (finalg > 100) {
+
+                    Toast.makeText(MainActivity.this, "Invalid input", Toast.LENGTH_SHORT).show();
+                } else {
 
 
-                dm.insert(ID.getText().toString(),
-                        fName.getText().toString(),
-                        course.getText().toString(),
-                        section.getText().toString(),
-                        mt.getText().toString(),
-                        finals.getText().toString());
-                Toast.makeText(MainActivity.this,fName.getText().toString()+ " has been inserted!", Toast.LENGTH_LONG).show();
+                    Integer grade = (Integer.valueOf(mt.getText().toString()) + Integer.valueOf(finals.getText().toString())) / 2;
+                    String fgrade = Integer.toString(grade);
+                    dm.insert(ID.getText().toString(),
+                            fName.getText().toString(),
+                            course.getText().toString(),
+                            section.getText().toString(),
+                            mt.getText().toString(),
+                            finals.getText().toString(),
+                            fgrade
+                    );
+                    Toast.makeText(MainActivity.this, fName.getText().toString() + " has been inserted!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

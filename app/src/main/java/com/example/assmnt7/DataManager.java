@@ -16,7 +16,7 @@ public class DataManager {
     public static final String TABLE_ROW_COURSE = "course";
     public static final String TABLE_ROW_MIDTERM = "midterm";
     public static final String TABLE_ROW_FINALS = "finals";
-    public static final String TABLE_ROW_GRADE = "grade";
+    public static final String TABLE_ROW_FGRADE = "fgrade";
 
     private static final String DB_NAME = "student_info_db";
     private static final int DB_VERSION = 1;
@@ -42,7 +42,7 @@ public class DataManager {
                     + " integer not null,"
                     + TABLE_ROW_FINALS
                     + " integer not null,"
-                    + TABLE_ROW_GRADE
+                    + TABLE_ROW_FGRADE
                     + " integer not null);";
             db.execSQL(newTableQueryString);
         }
@@ -55,15 +55,15 @@ public class DataManager {
         db = helper.getWritableDatabase();
     }
 
-    public void insert(String _id, String name, String section, String course, String midterm, String finals){
+    public void insert(String _id, String name, String section, String course, String midterm, String finals, String fgrade){
         String query = "INSERT INTO " + TABLE_STUDENT + " (" +
                 TABLE_ROW_ID + ", " +
                 TABLE_ROW_FNAME + ", " +
                 TABLE_ROW_SECTION + ", " +
                 TABLE_ROW_COURSE + ", " +
                 TABLE_ROW_MIDTERM + ", " +
-                TABLE_ROW_FINALS +
-                TABLE_ROW_GRADE + ") " +
+                TABLE_ROW_FINALS + ", " +
+                TABLE_ROW_FGRADE + ") " +
                 "VALUES (" +
                 "'" + _id + "'" + ", " +
                 "'" + name + "'" + ", " +
@@ -71,7 +71,7 @@ public class DataManager {
                 "'" + course + "'" + ", " +
                 "'" + midterm + "'" + ", " +
                 "'" + finals + "'" + ", " +
-                "'" + grade + "'" +
+                "'" + fgrade + "'" +
                 ")";
         Log.i("insert() = ", query);
         db.execSQL(query);
