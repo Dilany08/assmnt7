@@ -23,8 +23,7 @@ public class AppData {
     public void setData(String id, String FNAME, String course, String section, String midterm, String finals)
     {
         StringBuffer tempData = new StringBuffer(this.data);
-        tempData.append("ID:Name:Course:Section:Midterm:Finals" + id + ":" + FNAME  + ":" + course  +
-                ":" + section + ":" + midterm + ":" + finals + "\n");
+        tempData.append("ID: " + id + "\nName: " + FNAME + "\nCourse:" + course +"\nSection: "+ section +" \nMidterm: " + midterm + "\n Finals: " + finals + "\n \n");
         this.data = tempData.toString();
     }
 
