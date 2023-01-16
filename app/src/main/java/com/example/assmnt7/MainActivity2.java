@@ -17,12 +17,11 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        Button btnEdit;
         EditText editId;
         TextView tvfName, tvSection, tvCourse, tvMt, tvFinals;
 
-        btnEdit = findViewById(R.id.btnEdit);
-        editId = findViewById(R.id.editId);
+        Button btnEdit = findViewById(R.id.editBtn);
+        editId = findViewById(R.id.editID);
         tvfName = findViewById(R.id.tvfName);
         tvSection = findViewById(R.id.tvSection);
         tvCourse = findViewById(R.id.tvCourse);

@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="372dp"
+        android:layout_height="676dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:padding="15dp">
+        app:layout_constraintVertical_bias="0.49">
 
         <TextView
-            android:id="@+id/idNum"
+            android:id="@+id/idInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -54,18 +55,16 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
         <EditText
-            android:id="@+id/editId"
+            android:id="@+id/editID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/btnEdit"
+            android:id="@+id/editBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit" />
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
