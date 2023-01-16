@@ -18,7 +18,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         EditText editId;
-        TextView tvfName, tvSection, tvCourse, tvMt, tvFinals;
+        TextView tvfName, tvSection, tvCourse, tvMt, tvFinals,tvGrade;
 
         Button btnEdit = findViewById(R.id.editBtn);
         editId = findViewById(R.id.editID);
@@ -27,6 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
         tvCourse = findViewById(R.id.tvCourse);
         tvMt = findViewById(R.id.tvMt);
         tvFinals = findViewById(R.id.tvFinals);
+        tvGrade = findViewById(R.id.tvGrade);
 
 
         final DataManager dm = new DataManager(this);

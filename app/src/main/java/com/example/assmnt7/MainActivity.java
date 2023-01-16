@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Button searchAll = findViewById(R.id.allSearch);
         Button deleteBtn = findViewById(R.id.deleteBtn);
         EditText ID,course,fName,section,mt,finals,idEdit,idDelete,searchTV;
+        TextView grade;
 
         ID = findViewById(R.id.idInput);
         course = findViewById(R.id.courseInput);
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         idEdit = findViewById(R.id.editID);
         idDelete = findViewById(R.id.deleteID);
         searchTV = findViewById(R.id.searchTV);
+        grade = findViewById(R.id.gradef);
 
 
         final DataManager dm = new DataManager(this);
@@ -38,7 +41,14 @@ public class MainActivity extends AppCompatActivity {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dm.insert(ID.getText().toString(),fName.getText().toString(),course.getText().toString(),section.getText().toString(),mt.getText().toString(),finals.getText().toString());
+
+
+                dm.insert(ID.getText().toString(),
+                        fName.getText().toString(),
+                        course.getText().toString(),
+                        section.getText().toString(),
+                        mt.getText().toString(),
+                        finals.getText().toString());
                 Toast.makeText(MainActivity.this,fName.getText().toString()+ " has been inserted!", Toast.LENGTH_LONG).show();
             }
         });

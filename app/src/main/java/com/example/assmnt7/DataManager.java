@@ -16,6 +16,7 @@ public class DataManager {
     public static final String TABLE_ROW_COURSE = "course";
     public static final String TABLE_ROW_MIDTERM = "midterm";
     public static final String TABLE_ROW_FINALS = "finals";
+    public static final String TABLE_ROW_GRADE = "grade";
 
     private static final String DB_NAME = "student_info_db";
     private static final int DB_VERSION = 1;
@@ -40,6 +41,8 @@ public class DataManager {
                     + TABLE_ROW_MIDTERM
                     + " integer not null,"
                     + TABLE_ROW_FINALS
+                    + " integer not null,"
+                    + TABLE_ROW_GRADE
                     + " integer not null);";
             db.execSQL(newTableQueryString);
         }
@@ -59,14 +62,16 @@ public class DataManager {
                 TABLE_ROW_SECTION + ", " +
                 TABLE_ROW_COURSE + ", " +
                 TABLE_ROW_MIDTERM + ", " +
-                TABLE_ROW_FINALS + ") " +
+                TABLE_ROW_FINALS +
+                TABLE_ROW_GRADE + ") " +
                 "VALUES (" +
                 "'" + _id + "'" + ", " +
                 "'" + name + "'" + ", " +
                 "'" + section + "'" + ", " +
                 "'" + course + "'" + ", " +
                 "'" + midterm + "'" + ", " +
-                "'" + finals + "'" +
+                "'" + finals + "'" + ", " +
+                "'" + grade + "'" +
                 ")";
         Log.i("insert() = ", query);
         db.execSQL(query);
@@ -81,7 +86,7 @@ public class DataManager {
                 while (c.moveToNext()) {
                     Log.i(c.getString(1), c.getString(2));
                     myData.setData(c.getString(0), c.getString(1),
-                            c.getString(2) , c.getString(3), c.getString(4), c.getString(5));
+                            c.getString(2) , c.getString(3), c.getString(4), c.getString(5), c.getString(6));
                 }
                 return myData.getData();
             }
