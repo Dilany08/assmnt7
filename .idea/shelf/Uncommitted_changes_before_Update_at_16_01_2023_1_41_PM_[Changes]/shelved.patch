@@ -1,0 +1,216 @@
+Index: app/src/main/java/com/example/assmnt7/DataManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\nimport android.content.Context;\r\nimport android.database.sqlite.SQLiteDatabase;\r\nimport android.database.sqlite.SQLiteOpenHelper;\r\nimport android.util.Log;\r\nimport android.database.Cursor;\r\n\r\npublic class DataManager {\r\n\r\n    private SQLiteDatabase db;\r\n    public static final String TABLE_ROW_ID = \"_id\";\r\n    public static final String TABLE_ROW_NAME = \"name\";\r\n    public static final String TABLE_ROW_SECTION = \"section\";\r\n    public static final String TABLE_ROW_COURSE = \"course\";\r\n    public static final String TABLE_ROW_MIDTERM = \"midterm\";\r\n    public static final String TABLE_ROW_FINALS = \"finals\";\r\n\r\n    private static final String DB_NAME = \"student_data_db\";\r\n    private static final int DB_VERSION = 1;\r\n    private static final String TABLE_STUDENT = \"student_data\";\r\n\r\n    private class CustomSQLiteOpenHelper extends SQLiteOpenHelper {\r\n        public CustomSQLiteOpenHelper(Context context){\r\n            super(context, DB_NAME, null, DB_VERSION);\r\n        }\r\n        @Override\r\n        public void onCreate(SQLiteDatabase db) {\r\n            String newTableQueryString = \"create table \"\r\n                    + TABLE_STUDENT + \" (\"\r\n                    + TABLE_ROW_ID\r\n                    + \" text primary key not null,\"\r\n                    + TABLE_ROW_NAME\r\n                    + \" text not null,\"\r\n                    + TABLE_ROW_SECTION\r\n                    + \" text not null,\"\r\n                    + TABLE_ROW_COURSE\r\n                    + \" text not null,\"\r\n                    + TABLE_ROW_MIDTERM\r\n                    + \" integer not null,\"\r\n                    + TABLE_ROW_FINALS\r\n                    + \" integer not null);\";\r\n            db.execSQL(newTableQueryString);\r\n        }\r\n        @Override\r\n        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {\r\n        }\r\n    }\r\n    public DataManager(Context context) {\r\n        CustomSQLiteOpenHelper helper = new CustomSQLiteOpenHelper(context);\r\n        db = helper.getWritableDatabase();\r\n    }\r\n\r\n    public void insert(String _id, String name, String section, String course, String midterm, String finals){\r\n        String query = \"INSERT INTO \" + TABLE_STUDENT + \" (\" +\r\n                TABLE_ROW_ID + \", \" +\r\n                TABLE_ROW_NAME + \", \" +\r\n                TABLE_ROW_SECTION + \", \" +\r\n                TABLE_ROW_COURSE + \", \" +\r\n                TABLE_ROW_MIDTERM + \", \" +\r\n                TABLE_ROW_FINALS + \") \" +\r\n                \"VALUES (\" +\r\n                \"'\" + _id + \"'\" + \", \" +\r\n                \"'\" + name + \"'\" + \", \" +\r\n                \"'\" + section + \"'\" + \", \" +\r\n                \"'\" + course + \"'\" + \", \" +\r\n                \"'\" + midterm + \"'\" + \", \" +\r\n                \"'\" + finals + \"'\" +\r\n                \")\";\r\n        Log.i(\"insert() = \", query);\r\n        db.execSQL(query);\r\n    }\r\n            public Cursor searchAll() {\r\n            Cursor c = db.rawQuery(\"SELECT *\" + \" from \" +\r\n                    TABLE_STUDENT, null);\r\n            return c;\r\n            }\r\n            public String showData(Cursor c) {\r\n                AppData myData = new AppData();\r\n                while (c.moveToNext()) {\r\n                    Log.i(c.getString(1), c.getString(2));\r\n                    myData.setData(c.getString(0), c.getString(1),\r\n                            c.getString(2) , c.getString(3), c.getString(4), c.getString(5));\r\n                }\r\n                return myData.getData();\r\n            }\r\n            public AppData editId(Cursor c) {\r\n                AppData myData = new AppData();\r\n                while (c.moveToNext()) {\r\n                    myData.setId(c.getString(0));\r\n                    myData.setNAME((c.getString(1)));\r\n                    myData.setCourse(c.getString(2));\r\n                    myData.setSection(c.getString(3));\r\n                    myData.setMidterm(c.getString(4));\r\n                    myData.setFinals(c.getString(5));\r\n                }\r\n                return myData;\r\n            }\r\n\r\n        public void update(String _id, String name, String course, String section, String midterm, String finals){\r\n                    String query = \"UPDATE \" + TABLE_STUDENT + \"SET \" +\r\n                            TABLE_ROW_NAME + \" = \" +\"'\" + name + \"'\" +\r\n                            \", \" + \"SET \" + TABLE_ROW_COURSE + \"=\" + \"'\" + course + \"'\" + \", \" +\r\n                             TABLE_ROW_SECTION + \"=\" + \"'\" + section + \"'\" + \", \" +\r\n                              TABLE_ROW_MIDTERM + \"=\" + \"'\" + midterm + \"'\" + \", \" +\r\n                             TABLE_ROW_FINALS + \"=\" + \"'\" + finals + \"'\" +\r\n                            \"WHERE \" + TABLE_ROW_ID + \" = \" + \"'\" + _id + \"'\";\r\n                            Log.i(\"update() = \",query);\r\n                            db.execSQL(query);\r\n        }\r\n        public void delete(String _id) {\r\n                String query = \"DELETE FROM\" + TABLE_STUDENT +\r\n                        \"WHERE\" + TABLE_ROW_ID +\r\n                        \" = '\" + _id + \"';\";\r\n                Log.i(\"delete() = \", query);\r\n                db.execSQL(query);\r\n        }\r\n    }\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/DataManager.java b/app/src/main/java/com/example/assmnt7/DataManager.java
+--- a/app/src/main/java/com/example/assmnt7/DataManager.java	(revision 9e261e3231695787730bc6d1ed6ddc8649475a89)
++++ b/app/src/main/java/com/example/assmnt7/DataManager.java	(date 1673842056343)
+@@ -8,67 +8,77 @@
+ 
+ public class DataManager {
+ 
+-    private SQLiteDatabase db;
++        private SQLiteDatabase db;
++
+     public static final String TABLE_ROW_ID = "_id";
+-    public static final String TABLE_ROW_NAME = "name";
++    public static final String TABLE_ROW_FNAME = "fname";
++    public static final String TABLE_ROW_MIDTERM = "midterm";
+     public static final String TABLE_ROW_SECTION = "section";
+     public static final String TABLE_ROW_COURSE = "course";
+-    public static final String TABLE_ROW_MIDTERM = "midterm";
+     public static final String TABLE_ROW_FINALS = "finals";
+ 
+-    private static final String DB_NAME = "student_data_db";
++    private static final String DB_NAME = "student_data";
+     private static final int DB_VERSION = 1;
+     private static final String TABLE_STUDENT = "student_data";
+ 
++
+     private class CustomSQLiteOpenHelper extends SQLiteOpenHelper {
+-        public CustomSQLiteOpenHelper(Context context){
++        public CustomSQLiteOpenHelper(Context context) {
+             super(context, DB_NAME, null, DB_VERSION);
+         }
++
+         @Override
+         public void onCreate(SQLiteDatabase db) {
+             String newTableQueryString = "create table "
+-                    + TABLE_STUDENT + " ("
++                    + TABLE_STUDENT + "("
+                     + TABLE_ROW_ID
+                     + " text primary key not null,"
+-                    + TABLE_ROW_NAME
+-                    + " text not null,"
+-                    + TABLE_ROW_SECTION
+-                    + " text not null,"
+-                    + TABLE_ROW_COURSE
+-                    + " text not null,"
++                    + TABLE_ROW_FNAME
++                    + "text not null,"
++                    + TABLE_ROW_COURSE
++                    + "text not null,"
++                    + TABLE_ROW_SECTION
++                    + "text not null,"
+                     + TABLE_ROW_MIDTERM
+-                    + " integer not null,"
++                    + "integer not null,"
+                     + TABLE_ROW_FINALS
+-                    + " integer not null);";
++                    + "integer not null);";
+             db.execSQL(newTableQueryString);
++
+         }
++
+         @Override
+         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
++
++
+         }
+     }
+     public DataManager(Context context) {
+         CustomSQLiteOpenHelper helper = new CustomSQLiteOpenHelper(context);
++
+         db = helper.getWritableDatabase();
++
+     }
+ 
+-    public void insert(String _id, String name, String section, String course, String midterm, String finals){
+-        String query = "INSERT INTO " + TABLE_STUDENT + " (" +
+-                TABLE_ROW_ID + ", " +
+-                TABLE_ROW_NAME + ", " +
+-                TABLE_ROW_SECTION + ", " +
+-                TABLE_ROW_COURSE + ", " +
+-                TABLE_ROW_MIDTERM + ", " +
+-                TABLE_ROW_FINALS + ") " +
+-                "VALUES (" +
+-                "'" + _id + "'" + ", " +
+-                "'" + name + "'" + ", " +
+-                "'" + section + "'" + ", " +
+-                "'" + course + "'" + ", " +
+-                "'" + midterm + "'" + ", " +
+-                "'" + finals + "'" +
+-                ")";
+-        Log.i("insert() = ", query);
+-        db.execSQL(query);
++    public void insert(String _id, String fname, String course, String section, String midterm, String finals){
++
++            String query = "INSERT INTO " + TABLE_STUDENT + " (" +
++                    TABLE_ROW_ID + ", " +
++                    TABLE_ROW_FNAME + ", " +
++                    TABLE_ROW_COURSE + ", " +
++                    TABLE_ROW_SECTION + ", " +
++                    TABLE_ROW_MIDTERM + ", " +
++                    TABLE_ROW_FINALS + ") " +
++                    "VALUES (" +
++                    "'" + _id + "'" + ", " +
++                    "'" + fname + "'" + ", " +
++                    "'" + course + "'" + ", " +
++                    "'" + section + "'" + ", " +
++                    "'" + midterm + "'" + ", " +
++                    "'" + finals + "'" + ")";
++
++            Log.i("insert() = ", query);
++            db.execSQL(query);
+     }
+             public Cursor searchAll() {
+             Cursor c = db.rawQuery("SELECT *" + " from " +
+@@ -88,7 +98,7 @@
+                 AppData myData = new AppData();
+                 while (c.moveToNext()) {
+                     myData.setId(c.getString(0));
+-                    myData.setNAME((c.getString(1)));
++                    myData.setFNAME((c.getString(1)));
+                     myData.setCourse(c.getString(2));
+                     myData.setSection(c.getString(3));
+                     myData.setMidterm(c.getString(4));
+@@ -97,9 +107,9 @@
+                 return myData;
+             }
+ 
+-        public void update(String _id, String name, String course, String section, String midterm, String finals){
++        public void update(String _id, String fname, String course, String section, String midterm, String finals){
+                     String query = "UPDATE " + TABLE_STUDENT + "SET " +
+-                            TABLE_ROW_NAME + " = " +"'" + name + "'" +
++                            TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
+                             ", " + "SET " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
+                              TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
+                               TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
+Index: app/src/main/java/com/example/assmnt7/AppData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\npublic class AppData {\r\n    public String data;\r\n    public String id;\r\n    public String NAME;\r\n    public String course;\r\n    public String section;\r\n    public String midterm;\r\n    public String finals;\r\n    public AppData()\r\n    {\r\n        this.data = \"\";\r\n        this.id = \"\";\r\n        this.NAME = \"\";\r\n        this.course = \"\";\r\n        this.section = \"\";\r\n        this.midterm = \"\";\r\n        this.finals = \"\";\r\n    }\r\n    public String getData() {\r\n        return data; }\r\n    public void setData(String id, String FNAME, String course, String section, String midterm, String finals)\r\n    {\r\n        StringBuffer tempData = new StringBuffer(this.data);\r\n        tempData.append(\"ID:Name:Course:Section:Midterm:Finals\" + id + \":\" + FNAME  + \":\" + course  +\r\n                \":\" + section + \":\" + midterm + \":\" + finals + \"\\n\");\r\n        this.data = tempData.toString();\r\n    }\r\n\r\n    public void setId(String id)\r\n    {\r\n\r\n        this.id = id;\r\n    }\r\n    public void setNAME(String NAME)\r\n    {\r\n\r\n        this.NAME = NAME;\r\n    }\r\n    public void setCourse(String course)\r\n    {\r\n\r\n        this.course = course;\r\n    }\r\n    public void setSection(String section)\r\n    {\r\n\r\n        this.section = section;\r\n    }\r\n    public void setMidterm(String midterm)\r\n    {\r\n\r\n        this.midterm = midterm;\r\n    }\r\n    public void setFinals(String finals)\r\n    {\r\n\r\n        this.finals = finals;\r\n    }\r\n    public String getId()\r\n    {\r\n\r\n        return id;\r\n    }\r\n    public String getFNAME()\r\n    {\r\n\r\n        return NAME;\r\n    }\r\n    public String getCourse()\r\n    {\r\n\r\n        return course;\r\n    }\r\n    public String getSection()\r\n    {\r\n\r\n        return section;\r\n    }\r\n    public String getMidterm()\r\n    {\r\n\r\n        return midterm;\r\n    }\r\n    public String getFinals()\r\n    {\r\n\r\n        return finals;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/AppData.java b/app/src/main/java/com/example/assmnt7/AppData.java
+--- a/app/src/main/java/com/example/assmnt7/AppData.java	(revision 9e261e3231695787730bc6d1ed6ddc8649475a89)
++++ b/app/src/main/java/com/example/assmnt7/AppData.java	(date 1673842060017)
+@@ -3,7 +3,7 @@
+ public class AppData {
+     public String data;
+     public String id;
+-    public String NAME;
++    public String FNAME;
+     public String course;
+     public String section;
+     public String midterm;
+@@ -12,7 +12,7 @@
+     {
+         this.data = "";
+         this.id = "";
+-        this.NAME = "";
++        this.FNAME = "";
+         this.course = "";
+         this.section = "";
+         this.midterm = "";
+@@ -33,10 +33,10 @@
+ 
+         this.id = id;
+     }
+-    public void setNAME(String NAME)
++    public void setFNAME(String FNAME)
+     {
+ 
+-        this.NAME = NAME;
++        this.FNAME = FNAME;
+     }
+     public void setCourse(String course)
+     {
+@@ -66,7 +66,7 @@
+     public String getFNAME()
+     {
+ 
+-        return NAME;
++        return FNAME;
+     }
+     public String getCourse()
+     {
+Index: .idea/deploymentTargetDropDown.xml
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+deleted file mode 100644
+--- a/.idea/deploymentTargetDropDown.xml	(revision 9e261e3231695787730bc6d1ed6ddc8649475a89)
++++ /dev/null	(revision 9e261e3231695787730bc6d1ed6ddc8649475a89)
+@@ -1,17 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="deploymentTargetDropDown">
+-    <targetSelectedWithDropDown>
+-      <Target>
+-        <type value="QUICK_BOOT_TARGET" />
+-        <deviceKey>
+-          <Key>
+-            <type value="VIRTUAL_DEVICE_PATH" />
+-            <value value="C:\Users\A\.android\avd\ok.avd" />
+-          </Key>
+-        </deviceKey>
+-      </Target>
+-    </targetSelectedWithDropDown>
+-    <timeTargetWasSelectedWithDropDown value="2023-01-16T02:11:39.090286Z" />
+-  </component>
+-</project>
+\ No newline at end of file

@@ -1,0 +1,74 @@
+Index: app/src/main/java/com/example/assmnt7/DataManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\nimport android.content.Context;\r\nimport android.database.sqlite.SQLiteDatabase;\r\nimport android.database.sqlite.SQLiteOpenHelper;\r\nimport android.util.Log;\r\nimport android.database.Cursor;\r\n\r\npublic class DataManager {\r\n\r\n        private SQLiteDatabase db;\r\n\r\n    public static final String TABLE_ROW_ID = \"_id\";\r\n    public static final String TABLE_ROW_FNAME = \"fname\";\r\n    public static final String TABLE_ROW_MIDTERM = \"midterm\";\r\n    public static final String TABLE_ROW_SECTION = \"section\";\r\n    public static final String TABLE_ROW_COURSE = \"course\";\r\n    public static final String TABLE_ROW_FINALS = \"finals\";\r\n\r\n    private static final String DB_NAME = \"student_data\";\r\n    private static final int DB_VERSION = 1;\r\n    private static final String TABLE_STUDENT = \"student_data\";\r\n\r\n\r\n    private class CustomSQLiteOpenHelper extends SQLiteOpenHelper {\r\n        public CustomSQLiteOpenHelper(Context context) {\r\n            super(context, DB_NAME, null, DB_VERSION);\r\n        }\r\n\r\n        @Override\r\n        public void onCreate(SQLiteDatabase db) {\r\n            String newTableQueryString = \"create table \"\r\n                    + TABLE_STUDENT + \"(\"\r\n                    + TABLE_ROW_ID\r\n                    + \" integer primary key not null,\"\r\n                    + TABLE_ROW_FNAME\r\n                    + \"text not null,\"\r\n                    + TABLE_ROW_COURSE\r\n                    + \"text not null,\"\r\n                    + TABLE_ROW_SECTION\r\n                    + \"text not null,\"\r\n                    + TABLE_ROW_MIDTERM\r\n                    + \"integer not null,\"\r\n                    + TABLE_ROW_FINALS\r\n                    + \"integer not null);\";\r\n            db.execSQL(newTableQueryString);\r\n\r\n        }\r\n\r\n        @Override\r\n        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {\r\n\r\n\r\n        }\r\n    }\r\n    public DataManager(Context context) {\r\n        CustomSQLiteOpenHelper helper = new CustomSQLiteOpenHelper(context);\r\n\r\n        db = helper.getWritableDatabase();\r\n\r\n    }\r\n\r\n    public void insert(String _id, String fName, String course, String section, String midterm, String finals){\r\n\r\n            String query = \"INSERT INTO \" + TABLE_STUDENT + \" (\" +\r\n                    TABLE_ROW_ID + \", \" +\r\n                    TABLE_ROW_FNAME + \", \" +\r\n                    TABLE_ROW_COURSE + \", \" +\r\n                    TABLE_ROW_SECTION + \", \" +\r\n                    TABLE_ROW_MIDTERM + \", \" +\r\n                    TABLE_ROW_FINALS +\") \" +\r\n                    \"VALUES (\"+\r\n                    \"'\" + _id + \"'\" + \", \" +\r\n                    fName  + \"'\" + \", \" +\r\n                    course  + \"'\" + \", \" +\r\n                    section  + \"'\" + \", \" +\r\n                    midterm  + \"'\" + \", \" +\r\n                    finals + \"'\" + \") \";\r\n            Log.i(\"insert() = \", query);\r\n            db.execSQL(query);\r\n    }\r\n            public Cursor searchAll() {\r\n            Cursor c = db.rawQuery(\"SELECT *\" + \" from \" +\r\n                    TABLE_STUDENT, null);\r\n            return c;\r\n            }\r\n            public String showData(Cursor c) {\r\n                AppData myData = new AppData();\r\n                while (c.moveToNext()) {\r\n                    Log.i(c.getString(1), c.getString(2));\r\n                    myData.setData(c.getString(0), c.getString(1),\r\n                            c.getString(2) , c.getString(3), c.getString(4), c.getString(5));\r\n                }\r\n                return myData.getData();\r\n            }\r\n            public AppData editId(Cursor c) {\r\n                AppData myData = new AppData();\r\n                while (c.moveToNext()) {\r\n                    myData.setId(c.getString(0));\r\n                    myData.setfName((c.getString(1)));\r\n                    myData.setCourse(c.getString(2));\r\n                    myData.setSection(c.getString(3));\r\n                    myData.setMidterm(c.getString(4));\r\n                    myData.setFinals(c.getString(5));\r\n                }\r\n                return myData;\r\n            }\r\n\r\n        public void update(String _id, String fName, String course, String section, String midterm, String finals){\r\n                    String query = \"UPDATE \" + TABLE_STUDENT + \"SET \" +\r\n                            TABLE_ROW_FNAME + \" = \" +\"'\" + fName + \"'\" +\r\n                            \", \" + \"SET \" + TABLE_ROW_COURSE + \"=\" + \"'\" + course + \"'\" + \", \" +\r\n                            \"SET \" + TABLE_ROW_SECTION + \"=\" + \"'\" + section + \"'\" + \", \" +\r\n                            \"SET \" +  TABLE_ROW_MIDTERM + \"=\" + \"'\" + midterm + \"'\" + \", \" +\r\n                            \"SET \" + TABLE_ROW_FINALS + \"=\" + \"'\" + finals + \"'\" +\r\n                            \"WHERE \" + TABLE_ROW_ID + \" = \" + \"'\" + _id + \"'\";\r\n                            Log.i(\"update() = \",query);\r\n                            db.execSQL(query);\r\n        }\r\n        public void delete(String _id) {\r\n                String query = \"DELETE FROM\" + TABLE_STUDENT +\r\n                        \"WHERE\" + TABLE_ROW_ID +\r\n                        \" = '\" + _id + \"';\";\r\n                Log.i(\"delete() = \", query);\r\n                db.execSQL(query);\r\n        }\r\n    }\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/DataManager.java b/app/src/main/java/com/example/assmnt7/DataManager.java
+--- a/app/src/main/java/com/example/assmnt7/DataManager.java	(revision 2279695508fd1dd6121aedf83db4d4ae0901e4a1)
++++ b/app/src/main/java/com/example/assmnt7/DataManager.java	(date 1673839383671)
+@@ -1,5 +1,6 @@
+ package com.example.assmnt7;
+ 
++import android.content.ContentValues;
+ import android.content.Context;
+ import android.database.sqlite.SQLiteDatabase;
+ import android.database.sqlite.SQLiteOpenHelper;
+@@ -11,7 +12,7 @@
+         private SQLiteDatabase db;
+ 
+     public static final String TABLE_ROW_ID = "_id";
+-    public static final String TABLE_ROW_FNAME = "fname";
++    public static final String TABLE_ROW_FNAME = "fName";
+     public static final String TABLE_ROW_MIDTERM = "midterm";
+     public static final String TABLE_ROW_SECTION = "section";
+     public static final String TABLE_ROW_COURSE = "course";
+@@ -57,7 +58,6 @@
+         CustomSQLiteOpenHelper helper = new CustomSQLiteOpenHelper(context);
+ 
+         db = helper.getWritableDatabase();
+-
+     }
+ 
+     public void insert(String _id, String fName, String course, String section, String midterm, String finals){
+@@ -70,12 +70,12 @@
+                     TABLE_ROW_MIDTERM + ", " +
+                     TABLE_ROW_FINALS +") " +
+                     "VALUES ("+
+-                    "'" + _id + "'" + ", " +
+-                    fName  + "'" + ", " +
+-                    course  + "'" + ", " +
+-                    section  + "'" + ", " +
+-                    midterm  + "'" + ", " +
+-                    finals + "'" + ") ";
++                    "'" + _id + "'" + ", " + "'" +
++                    fName  + "'" + ", " + "'" +
++                    course  + "'" + ", " + "'" +
++                    section  + "'" + ", " + "'" +
++                    midterm  + "'" + ", " + "'" +
++                    finals + "'" + ")";
+             Log.i("insert() = ", query);
+             db.execSQL(query);
+     }
+Index: app/src/main/java/com/example/assmnt7/AppData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\npublic class AppData {\r\n    public String data;\r\n    public String id;\r\n    public String fName;\r\n    public String course;\r\n    public String section;\r\n    public String midterm;\r\n    public String finals;\r\n    public AppData()\r\n    {\r\n        this.data = \"\";\r\n        this.id = \"\";\r\n        this.fName = \"\";\r\n        this.course = \"\";\r\n        this.section = \"\";\r\n        this.midterm = \"\";\r\n        this.finals = \"\";\r\n    }\r\n    public String getData() {\r\n        return data; }\r\n    public void setData(String _id, String fName, String course, String section, String midterm, String finals)\r\n    {\r\n        StringBuffer tempData = new StringBuffer(this.data);\r\n        tempData.append(\"ID:Name:Course:Section:Midterm:Finals\" + _id + \":\" + fName  + \":\" + course  +\r\n                \":\" + section + \":\" + midterm + \":\" + finals + \"\\n\");\r\n        this.data = tempData.toString();\r\n    }\r\n\r\n    public void setId(String _id)\r\n    {\r\n\r\n        this.id = id;\r\n    }\r\n    public void setfName(String fName)\r\n    {\r\n\r\n        this.fName = fName;\r\n    }\r\n    public void setCourse(String course)\r\n    {\r\n\r\n        this.course = course;\r\n    }\r\n    public void setSection(String section)\r\n    {\r\n\r\n        this.section = section;\r\n    }\r\n    public void setMidterm(String midterm)\r\n    {\r\n\r\n        this.midterm = midterm;\r\n    }\r\n    public void setFinals(String finals)\r\n    {\r\n\r\n        this.finals = finals;\r\n    }\r\n    public String getId()\r\n    {\r\n\r\n        return id;\r\n    }\r\n    public String getfName()\r\n    {\r\n\r\n        return fName;\r\n    }\r\n    public String getCourse()\r\n    {\r\n\r\n        return course;\r\n    }\r\n    public String getSection()\r\n    {\r\n\r\n        return section;\r\n    }\r\n    public String getMidterm()\r\n    {\r\n\r\n        return midterm;\r\n    }\r\n    public String getFinals()\r\n    {\r\n\r\n        return finals;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/AppData.java b/app/src/main/java/com/example/assmnt7/AppData.java
+--- a/app/src/main/java/com/example/assmnt7/AppData.java	(revision 2279695508fd1dd6121aedf83db4d4ae0901e4a1)
++++ b/app/src/main/java/com/example/assmnt7/AppData.java	(date 1673829166707)
+@@ -23,8 +23,8 @@
+     public void setData(String _id, String fName, String course, String section, String midterm, String finals)
+     {
+         StringBuffer tempData = new StringBuffer(this.data);
+-        tempData.append("ID:Name:Course:Section:Midterm:Finals" + _id + ":" + fName  + ":" + course  +
+-                ":" + section + ":" + midterm + ":" + finals + "\n");
++        tempData.append("ID:" + _id + "\n" + "Name:" + fName + "\n" + "Course:" + course + "\n" + "Section:"
++                + section + "\n" + "Midterm:" +midterm + "\n" + "Finals:" + finals + "\n" );
+         this.data = tempData.toString();
+     }
+ 
