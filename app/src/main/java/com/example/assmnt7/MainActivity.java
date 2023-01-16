@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Button edit = findViewById(R.id.editBtn);
         Button search = findViewById(R.id.searchOne);
         Button searchAll = findViewById(R.id.allSearch);
+        Button deleteBtn = findViewById(R.id.deleteBtn);
         EditText ID,course,fName,section,mt,finals,idEdit,idDelete,searchTV;
 
         ID = findViewById(R.id.idInput);
@@ -65,6 +66,21 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(intent);
 
+            }
+        });
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            dm.delete(idDelete.getText().toString());
+                Toast.makeText(MainActivity.this, idDelete.getText().toString()+ " has been deleted!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String data = dm.showData(dm.search(searchTV.getText().toString()));
+                Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
             }
         });
 

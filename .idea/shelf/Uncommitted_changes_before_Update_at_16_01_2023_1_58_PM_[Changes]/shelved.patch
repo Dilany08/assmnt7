@@ -1,0 +1,68 @@
+Index: app/src/main/java/com/example/assmnt7/MainActivity2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\npublic class MainActivity2 extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main2);\r\n\r\n        Button btnEdit;\r\n        EditText editId;\r\n        TextView tvfName, tvSection, tvCourse, tvMt, tvFinals;\r\n\r\n        btnEdit = findViewById(R.id.btnEdit);\r\n        editId = findViewById(R.id.editId);\r\n        tvfName = findViewById(R.id.tvfName);\r\n        tvSection = findViewById(R.id.tvSection);\r\n        tvCourse = findViewById(R.id.tvCourse);\r\n        tvMt = findViewById(R.id.tvMt);\r\n        tvFinals = findViewById(R.id.tvFinals);\r\n\r\n\r\n        final DataManager dm = new DataManager(this);\r\n        Intent intent = getIntent();\r\n        editId.setText(intent.getStringExtra(\"ID Num\"));\r\n\r\n        btnEdit.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                dm.update(editId.getText().toString(),tvfName.getText().toString(), tvSection.getText().toString(),\r\n                        tvCourse.getText().toString(), tvMt.getText().toString(), tvFinals.getText().toString());\r\n                Toast.makeText(MainActivity2.this,  editId.getText().toString() + \"has been updated!\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/MainActivity2.java b/app/src/main/java/com/example/assmnt7/MainActivity2.java
+--- a/app/src/main/java/com/example/assmnt7/MainActivity2.java	(revision 78fff2c380d54a1ce1a307c29c678cad08942c11)
++++ b/app/src/main/java/com/example/assmnt7/MainActivity2.java	(date 1673848436954)
+@@ -32,7 +32,12 @@
+ 
+         final DataManager dm = new DataManager(this);
+         Intent intent = getIntent();
+-        editId.setText(intent.getStringExtra("ID Num"));
++        editId.setText(intent.getStringExtra("IDnum"));
++        tvfName.setText(intent.getStringExtra("name"));
++        tvCourse.setText(intent.getStringExtra("corse"));
++        tvSection.setText(intent.getStringExtra("section"));
++        tvMt.setText(intent.getStringExtra("midterm"));
++        tvFinals.setText(intent.getStringExtra("finals"));
+ 
+         btnEdit.setOnClickListener(new View.OnClickListener() {
+             @Override
+Index: app/src/main/java/com/example/assmnt7/AppData.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\npublic class AppData {\r\n    public String data;\r\n    public String id;\r\n    public String NAME;\r\n    public String course;\r\n    public String section;\r\n    public String midterm;\r\n    public String finals;\r\n    public AppData()\r\n    {\r\n        this.data = \"\";\r\n        this.id = \"\";\r\n        this.NAME = \"\";\r\n        this.course = \"\";\r\n        this.section = \"\";\r\n        this.midterm = \"\";\r\n        this.finals = \"\";\r\n    }\r\n    public String getData() {\r\n        return data; }\r\n    public void setData(String id, String FNAME, String course, String section, String midterm, String finals)\r\n    {\r\n        StringBuffer tempData = new StringBuffer(this.data);\r\n        tempData.append(\"ID: \" + id + \"\\nName: \" + FNAME + \"\\nCourse:\" + course +\"\\nSection: \"+ section +\" \\nMidterm: \" + midterm + \"\\n Finals: \" + finals + \"\\n \\n\");\r\n        this.data = tempData.toString();\r\n    }\r\n\r\n    public void setId(String id)\r\n    {\r\n\r\n        this.id = id;\r\n    }\r\n    public void setNAME(String NAME)\r\n    {\r\n\r\n        this.NAME = NAME;\r\n    }\r\n    public void setCourse(String course)\r\n    {\r\n\r\n        this.course = course;\r\n    }\r\n    public void setSection(String section)\r\n    {\r\n\r\n        this.section = section;\r\n    }\r\n    public void setMidterm(String midterm)\r\n    {\r\n\r\n        this.midterm = midterm;\r\n    }\r\n    public void setFinals(String finals)\r\n    {\r\n\r\n        this.finals = finals;\r\n    }\r\n    public String getId()\r\n    {\r\n\r\n        return id;\r\n    }\r\n    public String getFNAME()\r\n    {\r\n\r\n        return NAME;\r\n    }\r\n    public String getCourse()\r\n    {\r\n\r\n        return course;\r\n    }\r\n    public String getSection()\r\n    {\r\n\r\n        return section;\r\n    }\r\n    public String getMidterm()\r\n    {\r\n\r\n        return midterm;\r\n    }\r\n    public String getFinals()\r\n    {\r\n\r\n        return finals;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/AppData.java b/app/src/main/java/com/example/assmnt7/AppData.java
+--- a/app/src/main/java/com/example/assmnt7/AppData.java	(revision 78fff2c380d54a1ce1a307c29c678cad08942c11)
++++ b/app/src/main/java/com/example/assmnt7/AppData.java	(date 1673848145139)
+@@ -62,7 +62,7 @@
+ 
+         return id;
+     }
+-    public String getFNAME()
++    public String getNAME()
+     {
+ 
+         return NAME;
+Index: app/src/main/java/com/example/assmnt7/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.Toast;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        Button insert = findViewById(R.id.insertBtn);\r\n        Button edit = findViewById(R.id.editBtn);\r\n        Button search = findViewById(R.id.searchOne);\r\n        Button searchAll = findViewById(R.id.allSearch);\r\n        EditText ID,course,fName,section,mt,finals,idEdit,idDelete,searchTV;\r\n\r\n        ID = findViewById(R.id.idInput);\r\n        course = findViewById(R.id.courseInput);\r\n        fName = findViewById(R.id.fNameInput);\r\n        section = findViewById(R.id.sectionInput);\r\n        mt = findViewById(R.id.mtInput);\r\n        finals = findViewById(R.id.fInput);\r\n        idEdit = findViewById(R.id.editID);\r\n        idDelete = findViewById(R.id.deleteID);\r\n        searchTV = findViewById(R.id.searchTV);\r\n\r\n\r\n        final DataManager dm = new DataManager(this);\r\n\r\n        insert.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                dm.insert(ID.getText().toString(),fName.getText().toString(),course.getText().toString(),section.getText().toString(),mt.getText().toString(),finals.getText().toString());\r\n                Toast.makeText(MainActivity.this,fName.getText().toString()+ \" has been inserted!\", Toast.LENGTH_LONG).show();\r\n            }\r\n        });\r\n\r\n        searchAll.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                String data = dm.showData(dm.searchAll());\r\n                Toast.makeText(MainActivity.this, data,Toast.LENGTH_SHORT).show();\r\n            }\r\n        });\r\n        edit.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                AppData editData;\r\n                editData = dm.editId(dm.searchAll());\r\n                Intent intent = new Intent(MainActivity.this, MainActivity2.class);\r\n                intent.putExtra(\"ID Num\", editData.getId().toString());\r\n                startActivity(intent);\r\n\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/MainActivity.java b/app/src/main/java/com/example/assmnt7/MainActivity.java
+--- a/app/src/main/java/com/example/assmnt7/MainActivity.java	(revision 78fff2c380d54a1ce1a307c29c678cad08942c11)
++++ b/app/src/main/java/com/example/assmnt7/MainActivity.java	(date 1673848145123)
+@@ -56,7 +56,13 @@
+                 AppData editData;
+                 editData = dm.editId(dm.searchAll());
+                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+-                intent.putExtra("ID Num", editData.getId().toString());
++                intent.putExtra("IDnum", editData.getId().toString());
++                intent.putExtra("name", editData.getNAME().toString());
++                intent.putExtra("course", editData.getCourse().toString());
++                intent.putExtra("section", editData.getSection().toString());
++                intent.putExtra("midterm", editData.getMidterm().toString());
++                intent.putExtra("finals", editData.getFinals().toString());
++
+                 startActivity(intent);
+ 
+             }

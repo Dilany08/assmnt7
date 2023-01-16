@@ -110,11 +110,27 @@ public class DataManager {
                             db.execSQL(query);
         }
         public void delete(String _id) {
-                String query = "DELETE FROM" + TABLE_STUDENT +
-                        "WHERE" + TABLE_ROW_ID +
+                String query = "DELETE FROM " + TABLE_STUDENT +
+                        " WHERE " + TABLE_ROW_ID +
                         " = '" + _id + "';";
                 Log.i("delete() = ", query);
                 db.execSQL(query);
+        }
+        public Cursor search(String _id) {
+
+        String query = "SELECT " +
+                TABLE_ROW_ID + ", " +
+                TABLE_ROW_FNAME + ", " +
+                TABLE_ROW_COURSE + ", " +
+                TABLE_ROW_SECTION + ", " +
+                TABLE_ROW_MIDTERM + ", " +
+                TABLE_ROW_FINALS + " from " +
+                TABLE_STUDENT + " WHERE " +
+                TABLE_ROW_ID + " = '" + _id + "';";
+        Log.i("search() = ", query);
+        Cursor c = db.rawQuery(query,null);
+        return c;
+
         }
     }
 
