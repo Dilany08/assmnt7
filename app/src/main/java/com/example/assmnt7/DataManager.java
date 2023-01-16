@@ -84,7 +84,7 @@ public class DataManager {
                     TABLE_STUDENT, null);
             return c;
             }
-            public  String showData(Cursor c) {
+            public String showData(Cursor c) {
                 AppData myData = new AppData();
                 while (c.moveToNext()) {
                     Log.i(c.getString(1), c.getString(2));
@@ -96,7 +96,12 @@ public class DataManager {
             public AppData editId(Cursor c) {
                 AppData myData = new AppData();
                 while (c.moveToNext()) {
-                    myData.setId(c.getString(1));
+                    myData.setId(c.getString(0));
+                    myData.setfName((c.getString(1)));
+                    myData.setCourse(c.getString(2));
+                    myData.setSection(c.getString(3));
+                    myData.setMidterm(c.getString(4));
+                    myData.setFinals(c.getString(5));
                 }
                 return myData;
             }

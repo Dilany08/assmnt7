@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            dm.insert(ID.getText().toString(),fName.getText().toString(),section.getText().toString(),course.getText().toString(),
+                dm.insert(ID.getText().toString(),fName.getText().toString(),section.getText().toString(),course.getText().toString(),
                     mt.getText().toString(),finals.getText().toString());
-                Toast.makeText(MainActivity.this, fName.getText().toString()+ " has been inserted!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,fName.getText().toString()+ " has been inserted!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 AppData editData;
                 editData = dm.editId(dm.searchAll());
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                intent.putExtra("ID NUMBER", editData.getId().toString());
                 intent.putExtra("ID Num", editData.getId().toString());
                 startActivity(intent);
 
