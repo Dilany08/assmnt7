@@ -62,7 +62,7 @@ public class AppData {
 
         return id;
     }
-    public String getFNAME()
+    public String getNAME()
     {
 
         return NAME;

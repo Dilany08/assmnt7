@@ -56,7 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 AppData editData;
                 editData = dm.editId(dm.searchAll());
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                intent.putExtra("ID Num", editData.getId().toString());
+                intent.putExtra("IDnum", editData.getId().toString());
+                intent.putExtra("name", editData.getNAME().toString());
+                intent.putExtra("course", editData.getCourse().toString());
+                intent.putExtra("section", editData.getSection().toString());
+                intent.putExtra("midterm", editData.getMidterm().toString());
+                intent.putExtra("finals", editData.getFinals().toString());
+
                 startActivity(intent);
 
             }

@@ -31,7 +31,12 @@ public class MainActivity2 extends AppCompatActivity {
 
         final DataManager dm = new DataManager(this);
         Intent intent = getIntent();
-        editId.setText(intent.getStringExtra("ID Num"));
+        editId.setText(intent.getStringExtra("IDnum"));
+        tvfName.setText("Name: " +(intent.getStringExtra("name")));
+        tvCourse.setText("Course: " + (intent.getStringExtra("course")));
+        tvSection.setText("Section: " + (intent.getStringExtra("section")));
+        tvMt.setText("Midterm Grade: " + (intent.getStringExtra("midterm")));
+        tvFinals.setText("Finals Grade: " + (intent.getStringExtra("finals")));
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
