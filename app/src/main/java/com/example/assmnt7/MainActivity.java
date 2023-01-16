@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 dm.insert(ID.getText().toString(),fName.getText().toString(),course.getText().toString(),section.getText().toString(),mt.getText().toString(),finals.getText().toString());
                 Toast.makeText(MainActivity.this,fName.getText().toString()+ " has been inserted!", Toast.LENGTH_LONG).show();
             }

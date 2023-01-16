@@ -7,23 +7,23 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="422dp"
+        android:layout_height="735dp"
         android:orientation="vertical"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:padding="15dp"
-        >
+        app:layout_constraintVertical_bias="1.0">
 
         <EditText
             android:id="@+id/idInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="ID Number"
+            android:inputType="textPersonName"
 
             />
 
@@ -32,96 +32,91 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Full Name" />
+            android:hint="Full Name"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/courseInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Course" />
+            android:hint="Course"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/sectionInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Section" />
+            android:hint="Section"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/mtInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Midterm" />
+            android:hint="Midterm"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/fInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Finals"
-            />
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/insertBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Insert"
             android:layout_marginBottom="10dp"
-            />
+            android:text="Insert" />
 
         <EditText
             android:id="@+id/editID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Enter ID Number to Edit"
-            />
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/editBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit"
             android:layout_marginBottom="10dp"
-            />
+            android:text="Edit" />
 
         <EditText
             android:id="@+id/deleteID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Enter ID Number to Delete" />
+            android:hint="Enter ID Number to Delete"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/deleteBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Delete"
             android:layout_marginBottom="10dp"
-            />
+            android:text="Delete" />
 
         <EditText
             android:id="@+id/searchTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Enter ID Number to Search" />
+            android:hint="Enter ID Number to Search"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/searchOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter ID " />
+            android:text="SEARCH"/>
 
         <Button
             android:id="@+id/allSearch"
