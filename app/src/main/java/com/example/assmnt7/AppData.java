@@ -3,7 +3,7 @@ package com.example.assmnt7;
 public class AppData {
     public String data;
     public String id;
-    public String fName;
+    public String FNAME;
     public String course;
     public String section;
     public String midterm;
@@ -12,7 +12,7 @@ public class AppData {
     {
         this.data = "";
         this.id = "";
-        this.fName = "";
+        this.FNAME = "";
         this.course = "";
         this.section = "";
         this.midterm = "";
@@ -20,23 +20,23 @@ public class AppData {
     }
     public String getData() {
         return data; }
-    public void setData(String _id, String fName, String course, String section, String midterm, String finals)
+    public void setData(String id, String FNAME, String course, String section, String midterm, String finals)
     {
         StringBuffer tempData = new StringBuffer(this.data);
-        tempData.append("ID:Name:Course:Section:Midterm:Finals" + _id + ":" + fName  + ":" + course  +
+        tempData.append("ID:Name:Course:Section:Midterm:Finals" + id + ":" + FNAME  + ":" + course  +
                 ":" + section + ":" + midterm + ":" + finals + "\n");
         this.data = tempData.toString();
     }
 
-    public void setId(String _id)
+    public void setId(String id)
     {
 
         this.id = id;
     }
-    public void setfName(String fName)
+    public void setFNAME(String FNAME)
     {
 
-        this.fName = fName;
+        this.FNAME = FNAME;
     }
     public void setCourse(String course)
     {
@@ -63,10 +63,10 @@ public class AppData {
 
         return id;
     }
-    public String getfName()
+    public String getFNAME()
     {
 
-        return fName;
+        return FNAME;
     }
     public String getCourse()
     {

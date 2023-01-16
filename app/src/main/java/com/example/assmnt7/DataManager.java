@@ -25,33 +25,34 @@ public class DataManager {
     private class CustomSQLiteOpenHelper extends SQLiteOpenHelper {
         public CustomSQLiteOpenHelper(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
-
         }
+
         @Override
-        public void onCreate(SQLiteDatabase db){
-        String newTableQueryString ="create table "
-                + TABLE_STUDENT + "("
-                        +TABLE_ROW_ID
-                        + " integer primary key not null,"
-                        +TABLE_ROW_FNAME
-                        +"text not null,"
-                        +TABLE_ROW_COURSE
-                        +"text not null,"
-                        +TABLE_ROW_SECTION
-                        +"text not null,"
-                        +TABLE_ROW_MIDTERM
-                        +"integer not null,"
-                        +TABLE_ROW_FINALS
-                        +"integer not null);";
-                db.execSQL(newTableQueryString);
+        public void onCreate(SQLiteDatabase db) {
+            String newTableQueryString = "create table "
+                    + TABLE_STUDENT + "("
+                    + TABLE_ROW_ID
+                    + " text primary key not null,"
+                    + TABLE_ROW_FNAME
+                    + "text not null,"
+                    + TABLE_ROW_COURSE
+                    + "text not null,"
+                    + TABLE_ROW_SECTION
+                    + "text not null,"
+                    + TABLE_ROW_MIDTERM
+                    + "integer not null,"
+                    + TABLE_ROW_FINALS
+                    + "integer not null);";
+            db.execSQL(newTableQueryString);
 
         }
+
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
 
         }
-
+    }
     public DataManager(Context context) {
         CustomSQLiteOpenHelper helper = new CustomSQLiteOpenHelper(context);
 
@@ -59,7 +60,7 @@ public class DataManager {
 
     }
 
-    public void insert(String _id, String fName, String course, String section, String midterm, String finals){
+    public void insert(String _id, String fname, String course, String section, String midterm, String finals){
 
             String query = "INSERT INTO " + TABLE_STUDENT + " (" +
                     TABLE_ROW_ID + ", " +
@@ -67,14 +68,15 @@ public class DataManager {
                     TABLE_ROW_COURSE + ", " +
                     TABLE_ROW_SECTION + ", " +
                     TABLE_ROW_MIDTERM + ", " +
-                    TABLE_ROW_FINALS +") " +
-                    "VALUES ("+
+                    TABLE_ROW_FINALS + ") " +
+                    "VALUES (" +
                     "'" + _id + "'" + ", " +
-                    fName  + "'" + ", " +
-                    course  + "'" + ", " +
-                    section  + "'" + ", " +
-                    midterm  + "'" + ", " +
-                    finals + "'" + ") ";
+                    "'" + fname + "'" + ", " +
+                    "'" + course + "'" + ", " +
+                    "'" + section + "'" + ", " +
+                    "'" + midterm + "'" + ", " +
+                    "'" + finals + "'" + ")";
+
             Log.i("insert() = ", query);
             db.execSQL(query);
     }
@@ -83,7 +85,7 @@ public class DataManager {
                     TABLE_STUDENT, null);
             return c;
             }
-            public  String showData(Cursor c) {
+            public String showData(Cursor c) {
                 AppData myData = new AppData();
                 while (c.moveToNext()) {
                     Log.i(c.getString(1), c.getString(2));
@@ -92,18 +94,36 @@ public class DataManager {
                 }
                 return myData.getData();
             }
+            public AppData editId(Cursor c) {
+                AppData myData = new AppData();
+                while (c.moveToNext()) {
+                    myData.setId(c.getString(0));
+                    myData.setFNAME((c.getString(1)));
+                    myData.setCourse(c.getString(2));
+                    myData.setSection(c.getString(3));
+                    myData.setMidterm(c.getString(4));
+                    myData.setFinals(c.getString(5));
+                }
+                return myData;
+            }
 
-        public void update(String _id, String fName, String course, String section, String midterm, String finals){
+        public void update(String _id, String fname, String course, String section, String midterm, String finals){
                     String query = "UPDATE " + TABLE_STUDENT + "SET " +
-                            TABLE_ROW_FNAME + " = " +"'" + fName + "'" +
+                            TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
                             ", " + "SET " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
-                            "SET " + TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
-                            "SET " +  TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
-                            "SET " + TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
+                             TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
+                              TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
+                             TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
                             "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'";
-                            Log.i("update()",query);
+                            Log.i("update() = ",query);
                             db.execSQL(query);
-
+        }
+        public void delete(String _id) {
+                String query = "DELETE FROM" + TABLE_STUDENT +
+                        "WHERE" + TABLE_ROW_ID +
+                        " = '" + _id + "';";
+                Log.i("delete() = ", query);
+                db.execSQL(query);
         }
     }
-}
+
