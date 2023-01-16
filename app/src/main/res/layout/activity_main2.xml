@@ -25,7 +25,43 @@
             android:text="TextView"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
+            android:id="@+id/tvfName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
+            android:id="@+id/tvSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
+            android:id="@+id/tvCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
+            android:id="@+id/tvMt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <EditText
             android:id="@+id/editID"
