@@ -46,8 +46,11 @@ public class MainActivity extends AppCompatActivity {
         searchAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String data = dm.showData(dm.searchAll());
-                Toast.makeText(MainActivity.this, data,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+
+                intent.putExtra("showall",dm.showData(dm.searchAll()).toString());
+                Toast.makeText(MainActivity.this, "Loading Data...",Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
         edit.setOnClickListener(new View.OnClickListener() {
