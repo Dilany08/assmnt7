@@ -3,7 +3,7 @@ package com.example.assmnt7;
 public class AppData {
     public String data;
     public String id;
-    public String NAME;
+    public String FNAME;
     public String course;
     public String section;
     public String midterm;
@@ -12,7 +12,7 @@ public class AppData {
     {
         this.data = "";
         this.id = "";
-        this.NAME = "";
+        this.FNAME = "";
         this.course = "";
         this.section = "";
         this.midterm = "";
@@ -32,10 +32,10 @@ public class AppData {
 
         this.id = id;
     }
-    public void setNAME(String NAME)
+    public void setFNAME(String FNAME)
     {
 
-        this.NAME = NAME;
+        this.FNAME = FNAME;
     }
     public void setCourse(String course)
     {
@@ -65,7 +65,7 @@ public class AppData {
     public String getNAME()
     {
 
-        return NAME;
+        return FNAME;
     }
     public String getCourse()
     {
