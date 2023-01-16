@@ -8,15 +8,16 @@ import android.database.Cursor;
 
 public class DataManager {
 
-    private SQLiteDatabase db;
+        private SQLiteDatabase db;
+
     public static final String TABLE_ROW_ID = "_id";
-    public static final String TABLE_ROW_NAME = "name";
+    public static final String TABLE_ROW_FNAME = "fname";
     public static final String TABLE_ROW_SECTION = "section";
     public static final String TABLE_ROW_COURSE = "course";
     public static final String TABLE_ROW_MIDTERM = "midterm";
     public static final String TABLE_ROW_FINALS = "finals";
 
-    private static final String DB_NAME = "student_data_db";
+    private static final String DB_NAME = "student_info_db";
     private static final int DB_VERSION = 1;
     private static final String TABLE_STUDENT = "student_data";
 
@@ -30,7 +31,7 @@ public class DataManager {
                     + TABLE_STUDENT + " ("
                     + TABLE_ROW_ID
                     + " text primary key not null,"
-                    + TABLE_ROW_NAME
+                    + TABLE_ROW_FNAME
                     + " text not null,"
                     + TABLE_ROW_SECTION
                     + " text not null,"
@@ -54,7 +55,7 @@ public class DataManager {
     public void insert(String _id, String name, String section, String course, String midterm, String finals){
         String query = "INSERT INTO " + TABLE_STUDENT + " (" +
                 TABLE_ROW_ID + ", " +
-                TABLE_ROW_NAME + ", " +
+                TABLE_ROW_FNAME + ", " +
                 TABLE_ROW_SECTION + ", " +
                 TABLE_ROW_COURSE + ", " +
                 TABLE_ROW_MIDTERM + ", " +
@@ -88,7 +89,7 @@ public class DataManager {
                 AppData myData = new AppData();
                 while (c.moveToNext()) {
                     myData.setId(c.getString(0));
-                    myData.setNAME((c.getString(1)));
+                    myData.setFNAME((c.getString(1)));
                     myData.setCourse(c.getString(2));
                     myData.setSection(c.getString(3));
                     myData.setMidterm(c.getString(4));
@@ -97,9 +98,9 @@ public class DataManager {
                 return myData;
             }
 
-        public void update(String _id, String name, String course, String section, String midterm, String finals){
+        public void update(String _id, String fname, String course, String section, String midterm, String finals){
                     String query = "UPDATE " + TABLE_STUDENT + "SET " +
-                            TABLE_ROW_NAME + " = " +"'" + name + "'" +
+                            TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
                             ", " + "SET " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
                              TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
                               TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +

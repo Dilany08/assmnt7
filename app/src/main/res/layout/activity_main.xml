@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -23,6 +24,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="ID Number"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName"
 
             />
@@ -33,6 +36,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Full Name"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <EditText
@@ -41,6 +46,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Course"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <EditText
@@ -49,6 +56,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Section"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <EditText
@@ -57,6 +66,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Midterm"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <EditText
@@ -65,11 +76,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Finals"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/insertBtn"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Insert" />
@@ -80,11 +93,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter ID Number to Edit"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/editBtn"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Edit" />
@@ -95,11 +110,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter ID Number to Delete"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/deleteBtn"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Delete" />
@@ -110,18 +127,21 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter ID Number to Search"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/searchOne"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="SEARCH"/>
 
         <Button
             android:id="@+id/allSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
             android:text="Search All" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
