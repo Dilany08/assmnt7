@@ -8,6 +8,7 @@ public class AppData {
     public String section;
     public String midterm;
     public String finals;
+    public String fgrade;
     public AppData()
     {
         this.data = "";
@@ -17,13 +18,14 @@ public class AppData {
         this.section = "";
         this.midterm = "";
         this.finals = "";
+        this.fgrade = "";
     }
     public String getData() {
         return data; }
-    public void setData(String id, String FNAME, String course, String section, String midterm, String finals, String grade)
+    public void setData(String id, String FNAME, String course, String section, String midterm, String finals, String fgrade)
     {
         StringBuffer tempData = new StringBuffer(this.data);
-        tempData.append("ID: " + id + "\nName: " + FNAME + "\nCourse:" + course +"\nSection: "+ section +" \nMidterm: " + midterm + "\n Finals: " + finals +"\nGrade: " + grade + "\n \n");
+        tempData.append("ID: " + id + "\nName: " + FNAME + "\nCourse:" + course +"\nSection: "+ section +" \nMidterm: " + midterm + "\n Finals: " + finals +"\nGrade: " + fgrade + "\n \n");
         this.data = tempData.toString();
     }
 
@@ -57,6 +59,10 @@ public class AppData {
 
         this.finals = finals;
     }
+    public void setFgrade(String fgrade)
+    {
+        this.fgrade = fgrade;
+    }
 
 
     public String getId()
@@ -88,6 +94,11 @@ public class AppData {
     {
 
         return finals;
+    }
+
+    public String getFgrade()
+    {
+        return fgrade;
     }
 
 }

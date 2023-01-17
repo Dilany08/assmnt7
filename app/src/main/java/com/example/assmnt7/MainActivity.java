@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AppData editData;
-                editData = dm.editId(dm.searchAll());
+                editData = dm.editId(dm.search(idEdit.getText().toString()));
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
                 intent.putExtra("IDnum", editData.getId().toString());
                 intent.putExtra("name", editData.getNAME().toString());
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("section", editData.getSection().toString());
                 intent.putExtra("midterm", editData.getMidterm().toString());
                 intent.putExtra("finals", editData.getFinals().toString());
+                intent.putExtra("fgrade", editData.getFgrade().toString());
 
                 startActivity(intent);
 

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.49">
 
-        <TextView
+        <EditText
             android:id="@+id/tvfName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/tvCourse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:textColor="@color/white"
             android:textSize="25sp"  />
 
-        <TextView
+        <EditText
             android:id="@+id/tvSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:textColor="@color/white"
             android:textSize="25sp"  />
 
-        <TextView
+        <EditText
             android:id="@+id/tvMt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:textColor="@color/white"
             android:textSize="25sp"  />
 
-        <TextView
+        <EditText
             android:id="@+id/tvFinals"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             android:textColorHint="@color/white"
             android:textColor="@color/white"
             android:textSize="25sp"  />
-        <TextView
+        <EditText
             android:id="@+id/tvGrade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:textColor="@color/white"
             android:textSize="25sp"  />
 
-        <EditText
+        <TextView
             android:id="@+id/editID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

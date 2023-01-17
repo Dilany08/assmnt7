@@ -17,8 +17,8 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        EditText editId;
-        TextView tvfName, tvSection, tvCourse, tvMt, tvFinals,tvGrade;
+        TextView editId;
+        EditText tvfName, tvSection, tvCourse, tvMt, tvFinals,tvGrade;
 
         Button btnEdit = findViewById(R.id.editBtn);
         editId = findViewById(R.id.editID);
@@ -38,12 +38,13 @@ public class MainActivity2 extends AppCompatActivity {
         tvSection.setText("Section: " + (intent.getStringExtra("section")));
         tvMt.setText("Midterm Grade: " + (intent.getStringExtra("midterm")));
         tvFinals.setText("Finals Grade: " + (intent.getStringExtra("finals")));
+        tvGrade.setText("GWA: " + (intent.getStringExtra("fgrade")));
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dm.update(editId.getText().toString(),tvfName.getText().toString(), tvSection.getText().toString(),
-                        tvCourse.getText().toString(), tvMt.getText().toString(), tvFinals.getText().toString());
+                        tvCourse.getText().toString(), tvMt.getText().toString(), tvFinals.getText().toString(),tvGrade.getText().toString());
                 Toast.makeText(MainActivity2.this,  editId.getText().toString() + "has been updated!", Toast.LENGTH_SHORT).show();
             }
         });

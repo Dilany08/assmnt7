@@ -99,18 +99,25 @@ public class DataManager {
             myData.setSection(c.getString(3));
             myData.setMidterm(c.getString(4));
             myData.setFinals(c.getString(5));
+            myData.setFgrade(c.getString(6));
         }
         return myData;
     }
 
-    public void update(String _id, String fname, String course, String section, String midterm, String finals){
-        String query = "UPDATE " + TABLE_STUDENT + "SET " +
+    public void update(String _id, String fname, String course, String section, String midterm, String finals, String tvGrade){
+        String query = "UPDATE " + TABLE_STUDENT +
                 TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
-                ", " + "SET " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
+                ", " + "SET " + TABLE_ROW_ID + " = " + "'" + _id + "'" + ", " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
                 TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
                 TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
                 TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
-                "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'";
+                "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'" + ", "
+                + TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
+                TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
+                TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
+                TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
+                TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
+                TABLE_ROW_FGRADE + "=" + "'" + finals + "'";
         Log.i("update() = ",query);
         db.execSQL(query);
     }
@@ -129,7 +136,8 @@ public class DataManager {
                 TABLE_ROW_COURSE + ", " +
                 TABLE_ROW_SECTION + ", " +
                 TABLE_ROW_MIDTERM + ", " +
-                TABLE_ROW_FINALS + " from " +
+                TABLE_ROW_FINALS + ", " +
+                TABLE_ROW_FGRADE + " from " +
                 TABLE_STUDENT + " WHERE " +
                 TABLE_ROW_ID + " = '" + _id + "';";
         Log.i("search() = ", query);
