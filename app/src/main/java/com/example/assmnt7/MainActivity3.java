@@ -18,8 +18,6 @@ public class MainActivity3 extends AppCompatActivity {
         TextView tvAll = findViewById(R.id.tvAll);
 
 
-
-
         final DataManager dm = new DataManager(this);
         Intent intent = getIntent();
         tvAll.setText(intent.getStringExtra("showall"));

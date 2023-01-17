@@ -8,7 +8,7 @@ import android.database.Cursor;
 
 public class DataManager {
 
-        private SQLiteDatabase db;
+    private SQLiteDatabase db;
 
     public static final String TABLE_ROW_ID = "_id";
     public static final String TABLE_ROW_FNAME = "fname";
@@ -76,52 +76,52 @@ public class DataManager {
         Log.i("insert() = ", query);
         db.execSQL(query);
     }
-            public Cursor searchAll() {
-            Cursor c = db.rawQuery("SELECT *" + " from " +
-                    TABLE_STUDENT, null);
-            return c;
-            }
-            public String showData(Cursor c) {
-                AppData myData = new AppData();
-                while (c.moveToNext()) {
-                    Log.i(c.getString(1), c.getString(2));
-                    myData.setData(c.getString(0), c.getString(1),
-                            c.getString(2) , c.getString(3), c.getString(4), c.getString(5), c.getString(6));
-                }
-                return myData.getData();
-            }
-            public AppData editId(Cursor c) {
-                AppData myData = new AppData();
-                while (c.moveToNext()) {
-                    myData.setId(c.getString(0));
-                    myData.setFNAME((c.getString(1)));
-                    myData.setCourse(c.getString(2));
-                    myData.setSection(c.getString(3));
-                    myData.setMidterm(c.getString(4));
-                    myData.setFinals(c.getString(5));
-                }
-                return myData;
-            }
+    public Cursor searchAll() {
+        Cursor c = db.rawQuery("SELECT *" + " from " +
+                TABLE_STUDENT, null);
+        return c;
+    }
+    public String showData(Cursor c) {
+        AppData myData = new AppData();
+        while (c.moveToNext()) {
+            Log.i(c.getString(1), c.getString(2));
+            myData.setData(c.getString(0), c.getString(1),
+                    c.getString(2) , c.getString(3), c.getString(4), c.getString(5), c.getString(6));
+        }
+        return myData.getData();
+    }
+    public AppData editId(Cursor c) {
+        AppData myData = new AppData();
+        while (c.moveToNext()) {
+            myData.setId(c.getString(0));
+            myData.setFNAME((c.getString(1)));
+            myData.setCourse(c.getString(2));
+            myData.setSection(c.getString(3));
+            myData.setMidterm(c.getString(4));
+            myData.setFinals(c.getString(5));
+        }
+        return myData;
+    }
 
-        public void update(String _id, String fname, String course, String section, String midterm, String finals){
-                    String query = "UPDATE " + TABLE_STUDENT + "SET " +
-                            TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
-                            ", " + "SET " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
-                             TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
-                              TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
-                             TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
-                            "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'";
-                            Log.i("update() = ",query);
-                            db.execSQL(query);
-        }
-        public void delete(String _id) {
-                String query = "DELETE FROM " + TABLE_STUDENT +
-                        " WHERE " + TABLE_ROW_ID +
-                        " = '" + _id + "';";
-                Log.i("delete() = ", query);
-                db.execSQL(query);
-        }
-        public Cursor search(String _id) {
+    public void update(String _id, String fname, String course, String section, String midterm, String finals){
+        String query = "UPDATE " + TABLE_STUDENT + "SET " +
+                TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
+                ", " + "SET " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
+                TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
+                TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
+                TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
+                "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'";
+        Log.i("update() = ",query);
+        db.execSQL(query);
+    }
+    public void delete(String _id) {
+        String query = "DELETE FROM " + TABLE_STUDENT +
+                " WHERE " + TABLE_ROW_ID +
+                " = '" + _id + "';";
+        Log.i("delete() = ", query);
+        db.execSQL(query);
+    }
+    public Cursor search(String _id) {
 
         String query = "SELECT " +
                 TABLE_ROW_ID + ", " +
@@ -136,6 +136,5 @@ public class DataManager {
         Cursor c = db.rawQuery(query,null);
         return c;
 
-        }
     }
-
+}

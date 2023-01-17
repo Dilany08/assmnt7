@@ -20,10 +20,10 @@ public class AppData {
     }
     public String getData() {
         return data; }
-    public void setData(String id, String FNAME, String course, String section, String midterm, String finals, String string)
+    public void setData(String id, String FNAME, String course, String section, String midterm, String finals, String grade)
     {
         StringBuffer tempData = new StringBuffer(this.data);
-        tempData.append("ID: " + id + "\nName: " + FNAME + "\nCourse:" + course +"\nSection: "+ section +" \nMidterm: " + midterm + "\n Finals: " + finals +"\nGrade: " + "\n \n");
+        tempData.append("ID: " + id + "\nName: " + FNAME + "\nCourse:" + course +"\nSection: "+ section +" \nMidterm: " + midterm + "\n Finals: " + finals +"\nGrade: " + grade + "\n \n");
         this.data = tempData.toString();
     }
 
