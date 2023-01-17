@@ -106,18 +106,15 @@ public class DataManager {
 
     public void update(String _id, String fname, String course, String section, String midterm, String finals, String fgrade){
         String query = "UPDATE " + TABLE_STUDENT +
-                TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
-                ", " + "SET " + TABLE_ROW_ID + " = " + "'" + _id + "'" + ", " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
-                TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
-                TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
-                TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
-                "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'" + ", "
-                + TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
+                " SET " + TABLE_ROW_FNAME + " = " +"'" + fname + "'" + ", " +
                 TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
                 TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
                 TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
-                TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
-                TABLE_ROW_FGRADE + "=" + "'" + fgrade + "'";
+                TABLE_ROW_FINALS + "=" + "'" + finals + "'" + ", " +
+                TABLE_ROW_FGRADE + "=" + "'" + fgrade + "'" +
+                "WHERE "
+                        + TABLE_ROW_ID + " = " + "'" + _id + "'"
+               ;
         Log.i("update() = ",query);
         db.execSQL(query);
     }
