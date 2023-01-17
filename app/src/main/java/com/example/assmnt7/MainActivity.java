@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            dm.delete(idDelete.getText().toString());
+                dm.delete(idDelete.getText().toString());
                 Toast.makeText(MainActivity.this, idDelete.getText().toString()+ " has been deleted!", Toast.LENGTH_SHORT).show();
             }
         });

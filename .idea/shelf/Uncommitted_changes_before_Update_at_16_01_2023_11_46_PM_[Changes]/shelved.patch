@@ -1,0 +1,194 @@
+Index: app/src/main/res/layout/activity_main2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/t1\"\r\n    tools:context=\".MainActivity2\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"372dp\"\r\n        android:layout_height=\"676dp\"\r\n        android:orientation=\"vertical\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.41\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintVertical_bias=\"0.49\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/tvfName\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"TextView\"\r\n            android:textColorHint=\"@color/white\"\r\n            android:textColor=\"@color/white\"\r\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Display1\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/tvCourse\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"TextView\"\r\n            android:textColorHint=\"@color/white\"\r\n            android:textColor=\"@color/white\"\r\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Display1\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/tvSection\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"TextView\"\r\n            android:textColorHint=\"@color/white\"\r\n            android:textColor=\"@color/white\"\r\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Display1\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/tvMt\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"TextView\"\r\n            android:textColorHint=\"@color/white\"\r\n            android:textColor=\"@color/white\"\r\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Display1\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/tvFinals\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"TextView\"\r\n            android:textColorHint=\"@color/white\"\r\n            android:textColor=\"@color/white\"\r\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Display1\" />\r\n        <TextView\r\n            android:id=\"@+id/tvGrade\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"TextView\"\r\n            android:textColorHint=\"@color/white\"\r\n            android:textColor=\"@color/white\"\r\n            android:textAppearance=\"@style/TextAppearance.AppCompat.Display1\" />\r\n\r\n\r\n\r\n        <EditText\r\n            android:id=\"@+id/editID\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:ems=\"10\"\r\n            android:textColor=\"@color/white\"\r\n            android:inputType=\"textPersonName\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/editBtn\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Edit\" />\r\n    </LinearLayout>\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main2.xml b/app/src/main/res/layout/activity_main2.xml
+--- a/app/src/main/res/layout/activity_main2.xml	(revision 80c1f3e6d4b7a7007b4b96ccdd4222cc25a75f3e)
++++ b/app/src/main/res/layout/activity_main2.xml	(date 1673880425767)
+@@ -25,7 +25,7 @@
+             android:text="TextView"
+             android:textColorHint="@color/white"
+             android:textColor="@color/white"
+-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
++            android:textSize="25sp" />
+ 
+         <TextView
+             android:id="@+id/tvCourse"
+@@ -34,7 +34,7 @@
+             android:text="TextView"
+             android:textColorHint="@color/white"
+             android:textColor="@color/white"
+-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
++            android:textSize="25sp"  />
+ 
+         <TextView
+             android:id="@+id/tvSection"
+@@ -43,7 +43,7 @@
+             android:text="TextView"
+             android:textColorHint="@color/white"
+             android:textColor="@color/white"
+-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
++            android:textSize="25sp"  />
+ 
+         <TextView
+             android:id="@+id/tvMt"
+@@ -52,7 +52,7 @@
+             android:text="TextView"
+             android:textColorHint="@color/white"
+             android:textColor="@color/white"
+-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
++            android:textSize="25sp"  />
+ 
+         <TextView
+             android:id="@+id/tvFinals"
+@@ -61,7 +61,7 @@
+             android:text="TextView"
+             android:textColorHint="@color/white"
+             android:textColor="@color/white"
+-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
++            android:textSize="25sp"  />
+         <TextView
+             android:id="@+id/tvGrade"
+             android:layout_width="match_parent"
+@@ -69,9 +69,7 @@
+             android:text="TextView"
+             android:textColorHint="@color/white"
+             android:textColor="@color/white"
+-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+-
+-
++            android:textSize="25sp"  />
+ 
+         <EditText
+             android:id="@+id/editID"
+Index: app/src/main/java/com/example/assmnt7/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        Button insert = findViewById(R.id.insertBtn);\r\n        Button edit = findViewById(R.id.editBtn);\r\n        Button search = findViewById(R.id.searchOne);\r\n        Button searchAll = findViewById(R.id.allSearch);\r\n        Button deleteBtn = findViewById(R.id.deleteBtn);\r\n        EditText ID,course,fName,section,mt,finals,idEdit,idDelete,searchTV;\r\n        TextView grade;\r\n\r\n        ID = findViewById(R.id.idInput);\r\n        course = findViewById(R.id.courseInput);\r\n        fName = findViewById(R.id.fNameInput);\r\n        section = findViewById(R.id.sectionInput);\r\n        mt = findViewById(R.id.mtInput);\r\n        finals = findViewById(R.id.fInput);\r\n        idEdit = findViewById(R.id.editID);\r\n        idDelete = findViewById(R.id.deleteID);\r\n        searchTV = findViewById(R.id.searchTV);\r\n        grade = findViewById(R.id.gradef);\r\n\r\n\r\n        final DataManager dm = new DataManager(this);\r\n\r\n        insert.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n\r\n\r\n                dm.insert(ID.getText().toString(),\r\n                        fName.getText().toString(),\r\n                        course.getText().toString(),\r\n                        section.getText().toString(),\r\n                        mt.getText().toString(),\r\n                        finals.getText().toString());\r\n                Toast.makeText(MainActivity.this,fName.getText().toString()+ \" has been inserted!\", Toast.LENGTH_LONG).show();\r\n            }\r\n        });\r\n\r\n        searchAll.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent intent = new Intent(MainActivity.this, MainActivity3.class);\r\n\r\n                intent.putExtra(\"showall\",dm.showData(dm.searchAll()).toString());\r\n                Toast.makeText(MainActivity.this, \"Loading Data...\",Toast.LENGTH_SHORT).show();\r\n                startActivity(intent);\r\n            }\r\n        });\r\n        edit.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                AppData editData;\r\n                editData = dm.editId(dm.searchAll());\r\n                Intent intent = new Intent(MainActivity.this, MainActivity2.class);\r\n                intent.putExtra(\"IDnum\", editData.getId().toString());\r\n                intent.putExtra(\"name\", editData.getNAME().toString());\r\n                intent.putExtra(\"course\", editData.getCourse().toString());\r\n                intent.putExtra(\"section\", editData.getSection().toString());\r\n                intent.putExtra(\"midterm\", editData.getMidterm().toString());\r\n                intent.putExtra(\"finals\", editData.getFinals().toString());\r\n\r\n                startActivity(intent);\r\n\r\n            }\r\n        });\r\n\r\n        deleteBtn.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n            dm.delete(idDelete.getText().toString());\r\n                Toast.makeText(MainActivity.this, idDelete.getText().toString()+ \" has been deleted!\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        });\r\n        search.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                String data = dm.showData(dm.search(searchTV.getText().toString()));\r\n                Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/MainActivity.java b/app/src/main/java/com/example/assmnt7/MainActivity.java
+--- a/app/src/main/java/com/example/assmnt7/MainActivity.java	(revision 80c1f3e6d4b7a7007b4b96ccdd4222cc25a75f3e)
++++ b/app/src/main/java/com/example/assmnt7/MainActivity.java	(date 1673883692609)
+@@ -36,6 +36,7 @@
+         grade = findViewById(R.id.gradef);
+ 
+ 
++
+         final DataManager dm = new DataManager(this);
+ 
+         insert.setOnClickListener(new View.OnClickListener() {
+@@ -92,7 +93,7 @@
+             @Override
+             public void onClick(View v) {
+                 String data = dm.showData(dm.search(searchTV.getText().toString()));
+-                Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
++                Toast.makeText(MainActivity.this, data, Toast.LENGTH_LONG).show();
+             }
+         });
+ 
+Index: app/src/main/java/com/example/assmnt7/DataManager.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\nimport android.content.Context;\r\nimport android.database.sqlite.SQLiteDatabase;\r\nimport android.database.sqlite.SQLiteOpenHelper;\r\nimport android.util.Log;\r\nimport android.database.Cursor;\r\n\r\npublic class DataManager {\r\n\r\n        private SQLiteDatabase db;\r\n\r\n    public static final String TABLE_ROW_ID = \"_id\";\r\n    public static final String TABLE_ROW_FNAME = \"fname\";\r\n    public static final String TABLE_ROW_SECTION = \"section\";\r\n    public static final String TABLE_ROW_COURSE = \"course\";\r\n    public static final String TABLE_ROW_MIDTERM = \"midterm\";\r\n    public static final String TABLE_ROW_FINALS = \"finals\";\r\n    public static final String TABLE_ROW_GRADE = \"grade\";\r\n\r\n    private static final String DB_NAME = \"student_info_db\";\r\n    private static final int DB_VERSION = 1;\r\n    private static final String TABLE_STUDENT = \"student_data\";\r\n\r\n    private class CustomSQLiteOpenHelper extends SQLiteOpenHelper {\r\n        public CustomSQLiteOpenHelper(Context context){\r\n            super(context, DB_NAME, null, DB_VERSION);\r\n        }\r\n        @Override\r\n        public void onCreate(SQLiteDatabase db) {\r\n            String newTableQueryString = \"create table \"\r\n                    + TABLE_STUDENT + \" (\"\r\n                    + TABLE_ROW_ID\r\n                    + \" text primary key not null,\"\r\n                    + TABLE_ROW_FNAME\r\n                    + \" text not null,\"\r\n                    + TABLE_ROW_SECTION\r\n                    + \" text not null,\"\r\n                    + TABLE_ROW_COURSE\r\n                    + \" text not null,\"\r\n                    + TABLE_ROW_MIDTERM\r\n                    + \" integer not null,\"\r\n                    + TABLE_ROW_FINALS\r\n                    + \" integer not null,\"\r\n                    + TABLE_ROW_GRADE\r\n                    + \" integer not null);\";\r\n            db.execSQL(newTableQueryString);\r\n        }\r\n        @Override\r\n        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {\r\n        }\r\n    }\r\n    public DataManager(Context context) {\r\n        CustomSQLiteOpenHelper helper = new CustomSQLiteOpenHelper(context);\r\n        db = helper.getWritableDatabase();\r\n    }\r\n\r\n    public void insert(String _id, String name, String section, String course, String midterm, String finals){\r\n        String query = \"INSERT INTO \" + TABLE_STUDENT + \" (\" +\r\n                TABLE_ROW_ID + \", \" +\r\n                TABLE_ROW_FNAME + \", \" +\r\n                TABLE_ROW_SECTION + \", \" +\r\n                TABLE_ROW_COURSE + \", \" +\r\n                TABLE_ROW_MIDTERM + \", \" +\r\n                TABLE_ROW_FINALS +\r\n                TABLE_ROW_GRADE + \") \" +\r\n                \"VALUES (\" +\r\n                \"'\" + _id + \"'\" + \", \" +\r\n                \"'\" + name + \"'\" + \", \" +\r\n                \"'\" + section + \"'\" + \", \" +\r\n                \"'\" + course + \"'\" + \", \" +\r\n                \"'\" + midterm + \"'\" + \", \" +\r\n                \"'\" + finals + \"'\" + \", \" +\r\n                \"'\" + grade + \"'\" +\r\n                \")\";\r\n        Log.i(\"insert() = \", query);\r\n        db.execSQL(query);\r\n    }\r\n            public Cursor searchAll() {\r\n            Cursor c = db.rawQuery(\"SELECT *\" + \" from \" +\r\n                    TABLE_STUDENT, null);\r\n            return c;\r\n            }\r\n            public String showData(Cursor c) {\r\n                AppData myData = new AppData();\r\n                while (c.moveToNext()) {\r\n                    Log.i(c.getString(1), c.getString(2));\r\n                    myData.setData(c.getString(0), c.getString(1),\r\n                            c.getString(2) , c.getString(3), c.getString(4), c.getString(5), c.getString(6));\r\n                }\r\n                return myData.getData();\r\n            }\r\n            public AppData editId(Cursor c) {\r\n                AppData myData = new AppData();\r\n                while (c.moveToNext()) {\r\n                    myData.setId(c.getString(0));\r\n                    myData.setFNAME((c.getString(1)));\r\n                    myData.setCourse(c.getString(2));\r\n                    myData.setSection(c.getString(3));\r\n                    myData.setMidterm(c.getString(4));\r\n                    myData.setFinals(c.getString(5));\r\n                }\r\n                return myData;\r\n            }\r\n\r\n        public void update(String _id, String fname, String course, String section, String midterm, String finals){\r\n                    String query = \"UPDATE \" + TABLE_STUDENT + \"SET \" +\r\n                            TABLE_ROW_FNAME + \" = \" +\"'\" + fname + \"'\" +\r\n                            \", \" + \"SET \" + TABLE_ROW_COURSE + \"=\" + \"'\" + course + \"'\" + \", \" +\r\n                             TABLE_ROW_SECTION + \"=\" + \"'\" + section + \"'\" + \", \" +\r\n                              TABLE_ROW_MIDTERM + \"=\" + \"'\" + midterm + \"'\" + \", \" +\r\n                             TABLE_ROW_FINALS + \"=\" + \"'\" + finals + \"'\" +\r\n                            \"WHERE \" + TABLE_ROW_ID + \" = \" + \"'\" + _id + \"'\";\r\n                            Log.i(\"update() = \",query);\r\n                            db.execSQL(query);\r\n        }\r\n        public void delete(String _id) {\r\n                String query = \"DELETE FROM \" + TABLE_STUDENT +\r\n                        \" WHERE \" + TABLE_ROW_ID +\r\n                        \" = '\" + _id + \"';\";\r\n                Log.i(\"delete() = \", query);\r\n                db.execSQL(query);\r\n        }\r\n        public Cursor search(String _id) {\r\n\r\n        String query = \"SELECT \" +\r\n                TABLE_ROW_ID + \", \" +\r\n                TABLE_ROW_FNAME + \", \" +\r\n                TABLE_ROW_COURSE + \", \" +\r\n                TABLE_ROW_SECTION + \", \" +\r\n                TABLE_ROW_MIDTERM + \", \" +\r\n                TABLE_ROW_FINALS + \" from \" +\r\n                TABLE_STUDENT + \" WHERE \" +\r\n                TABLE_ROW_ID + \" = '\" + _id + \"';\";\r\n        Log.i(\"search() = \", query);\r\n        Cursor c = db.rawQuery(query,null);\r\n        return c;\r\n\r\n        }\r\n    }\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/DataManager.java b/app/src/main/java/com/example/assmnt7/DataManager.java
+--- a/app/src/main/java/com/example/assmnt7/DataManager.java	(revision 80c1f3e6d4b7a7007b4b96ccdd4222cc25a75f3e)
++++ b/app/src/main/java/com/example/assmnt7/DataManager.java	(date 1673882678822)
+@@ -16,7 +16,7 @@
+     public static final String TABLE_ROW_COURSE = "course";
+     public static final String TABLE_ROW_MIDTERM = "midterm";
+     public static final String TABLE_ROW_FINALS = "finals";
+-    public static final String TABLE_ROW_GRADE = "grade";
++    public static final String TABLE_ROW_FINALGRADE = "grade";
+ 
+     private static final String DB_NAME = "student_info_db";
+     private static final int DB_VERSION = 1;
+@@ -42,8 +42,8 @@
+                     + " integer not null,"
+                     + TABLE_ROW_FINALS
+                     + " integer not null,"
+-                    + TABLE_ROW_GRADE
+-                    + " integer not null);";
++                    + TABLE_ROW_FINALGRADE
++                    + " int not null);";
+             db.execSQL(newTableQueryString);
+         }
+         @Override
+@@ -55,22 +55,21 @@
+         db = helper.getWritableDatabase();
+     }
+ 
+-    public void insert(String _id, String name, String section, String course, String midterm, String finals){
++    public void insert(String _id, String name, String course, String section, int midterm, int finals, int grade){
+         String query = "INSERT INTO " + TABLE_STUDENT + " (" +
+                 TABLE_ROW_ID + ", " +
+                 TABLE_ROW_FNAME + ", " +
+                 TABLE_ROW_SECTION + ", " +
+                 TABLE_ROW_COURSE + ", " +
+                 TABLE_ROW_MIDTERM + ", " +
+-                TABLE_ROW_FINALS +
+-                TABLE_ROW_GRADE + ") " +
++                TABLE_ROW_FINALS + ") " +
+                 "VALUES (" +
+                 "'" + _id + "'" + ", " +
+                 "'" + name + "'" + ", " +
+                 "'" + section + "'" + ", " +
+                 "'" + course + "'" + ", " +
+                 "'" + midterm + "'" + ", " +
+-                "'" + finals + "'" + ", " +
++                "'" + finals + "'" +  ", " +
+                 "'" + grade + "'" +
+                 ")";
+         Log.i("insert() = ", query);
+@@ -103,13 +102,15 @@
+                 return myData;
+             }
+ 
+-        public void update(String _id, String fname, String course, String section, String midterm, String finals){
++    public void update(String _id, String fname, String course, String section, int midterm, int finals, int grade){
+                     String query = "UPDATE " + TABLE_STUDENT + "SET " +
+                             TABLE_ROW_FNAME + " = " +"'" + fname + "'" +
+                             ", " + "SET " + TABLE_ROW_COURSE + "=" + "'" + course + "'" + ", " +
+                              TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
+                               TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
+-                             TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
++                             TABLE_ROW_FINALS + "=" + "'" + finals + "'" + "," +
++                            TABLE_ROW_FINALGRADE + " = " +
++                            "'" + grade + "'" +
+                             "WHERE " + TABLE_ROW_ID + " = " + "'" + _id + "'";
+                             Log.i("update() = ",query);
+                             db.execSQL(query);
+@@ -129,6 +130,7 @@
+                 TABLE_ROW_COURSE + ", " +
+                 TABLE_ROW_SECTION + ", " +
+                 TABLE_ROW_MIDTERM + ", " +
++                TABLE_ROW_FINALGRADE +
+                 TABLE_ROW_FINALS + " from " +
+                 TABLE_STUDENT + " WHERE " +
+                 TABLE_ROW_ID + " = '" + _id + "';";
+Index: app/src/main/java/com/example/assmnt7/MainActivity3.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.assmnt7;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.TextView;\r\n\r\npublic class MainActivity3 extends AppCompatActivity {\r\n\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main3);\r\n        TextView tvAll = findViewById(R.id.tvAll);\r\n\r\n\r\n\r\n\r\n        final DataManager dm = new DataManager(this);\r\n        Intent intent = getIntent();\r\n        tvAll.setText(intent.getStringExtra(\"showall\"));\r\n\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/assmnt7/MainActivity3.java b/app/src/main/java/com/example/assmnt7/MainActivity3.java
+--- a/app/src/main/java/com/example/assmnt7/MainActivity3.java	(revision 80c1f3e6d4b7a7007b4b96ccdd4222cc25a75f3e)
++++ b/app/src/main/java/com/example/assmnt7/MainActivity3.java	(date 1673879541854)
+@@ -18,8 +18,6 @@
+         TextView tvAll = findViewById(R.id.tvAll);
+ 
+ 
+-
+-
+         final DataManager dm = new DataManager(this);
+         Intent intent = getIntent();
+         tvAll.setText(intent.getStringExtra("showall"));
