@@ -117,7 +117,7 @@ public class DataManager {
                 TABLE_ROW_SECTION + "=" + "'" + section + "'" + ", " +
                 TABLE_ROW_MIDTERM + "=" + "'" + midterm + "'" + ", " +
                 TABLE_ROW_FINALS + "=" + "'" + finals + "'" +
-                TABLE_ROW_FGRADE + "=" + "'" + finals + "'";
+                TABLE_ROW_FGRADE + "=" + "'" + tvGrade + "'";
         Log.i("update() = ",query);
         db.execSQL(query);
     }
